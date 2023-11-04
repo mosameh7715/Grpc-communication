@@ -1,0 +1,35 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Protos";
+
+service StudentService
+{
+	rpc AddNewStudent (RequestAddStudent) returns (ResponseStudentId); 
+	rpc GetStudentById (RequestStudentId) returns (ResponseStudentData); 
+}
+
+message Student
+{
+	string name = 1;
+	int32 stdId = 2;
+}
+
+message RequestAddStudent
+{
+	Student student = 1;
+}
+
+message ResponseStudentId
+{
+	int32 stdId = 1;
+}
+
+message RequestStudentId
+{
+	int32 stdId = 1;
+}
+
+message ResponseStudentData
+{
+	Student student = 1;
+}
